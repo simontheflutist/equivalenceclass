@@ -1,8 +1,6 @@
 package main;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.StringJoiner;
+import java.util.*;
 
 public class EquivalenceClassFactory<T> {
 
@@ -16,11 +14,14 @@ public class EquivalenceClassFactory<T> {
         return new EquivalenceClass(val);
     }
 
-    private final class EquivalenceClass {
+    public final class Map<V> extends HashMap<EquivalenceClass, V> {}
+    public final class Set extends HashSet<EquivalenceClass> {}
+
+    public final class EquivalenceClass {
 
         private final T val;
 
-        public <R extends T> EquivalenceClass(final R val) {
+        private <R extends T> EquivalenceClass(final R val) {
             this.val = val;
         }
 
